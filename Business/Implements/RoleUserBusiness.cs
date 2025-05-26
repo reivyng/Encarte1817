@@ -6,7 +6,7 @@ using Data.Implements.UserDate;
 using Data.Interfaces;
 using Entity;
 using Entity.Dtos.RolUserDTO;
-using Entity.Model;
+using Entity.Model.Security;
 using Microsoft.Extensions.Logging;
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;

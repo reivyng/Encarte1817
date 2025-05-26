@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Business.Interfaces;
 using Entity.Dtos.AuthDTO;
-using Entity.Model;
+using Entity.Model.Security;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Utilities.Interfaces;

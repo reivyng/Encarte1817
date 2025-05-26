@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Entity.Model.Base;
+using Entity.Model.OthersPerson;
 
-namespace Entity.Model
+namespace Entity.Model.Security
 {
     public class User : BaseEntity
     {
@@ -14,5 +15,10 @@ namespace Entity.Model
         public  IEnumerable<RolUser> RolUsers { get; set; }
         public int NeighborhoodId { get; set; }
         public Neighborhood Neighborhood { get; set; }
+        public int PersonId { get; set; }
+        public Person Person { get; set; }
+        public Client Client { get; set; }
+        public Employee Employee { get; set; }
+        public Provider Provider { get; set; }
     }
 }

@@ -4,7 +4,6 @@ using Microsoft.Extensions.Logging;
 using Entity;
 
 using Business.Services;
-using Entity.Model;
 using Business.Interfaces;
 using Data.Interfaces;
 using Utilities.Exceptions;
@@ -13,6 +12,7 @@ using Data.Implements.RolUserData;
 using Entity.Dtos.RolUserDTO;
 using Utilities.Interfaces;
 using Entity.Dtos.RolDTO;
+using Entity.Model.Security;
 
 
 namespace Business.Implements

@@ -8,7 +8,7 @@ using Data.Implements.RolUserData;
 using Data.Interfaces;
 using Entity.Dtos.RolUserDTO;
 using Entity.Dtos.UserDTO;
-using Entity.Model;
+using Entity.Model.Security;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Utilities.Exceptions;

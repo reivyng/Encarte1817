@@ -2,8 +2,7 @@
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Entity.Dtos.AuthDTO;
-
-using Entity.Model;
+using Entity.Model.Security;
 
 namespace Business.Interfaces
 {

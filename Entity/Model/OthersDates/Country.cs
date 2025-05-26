@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entity.Model
+namespace Entity.Model.OthersPerson
 {
     public class Country : GenericModel
     {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Entity.Model.Base;
 
-namespace Entity.Model
+namespace Entity.Model.Security
 {
     public class Rol : GenericModel
     {

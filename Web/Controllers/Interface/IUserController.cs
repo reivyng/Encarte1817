@@ -1,5 +1,5 @@
 ﻿using Entity.Dtos.UserDTO;
-using Entity.Model;
+using Entity.Model.Security;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Controllers.Interface

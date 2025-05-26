@@ -1,14 +1,13 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
-
-using Entity.Model;
 using Entity.Model.Base;
 
 using System.Data;
 using Dapper;
 
 using System.Linq.Expressions;
+using Entity.Model.Security;
 
 
 namespace Entity.Context

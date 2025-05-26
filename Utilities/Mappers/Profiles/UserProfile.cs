@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Entity.Dtos.UserDTO;
-using Entity.Model;
+using Entity.Model.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;

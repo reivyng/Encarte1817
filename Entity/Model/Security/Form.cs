@@ -1,6 +1,6 @@
 ﻿using Entity.Model.Base;
 
-namespace Entity.Model
+namespace Entity.Model.Security
 {
     public class Form : GenericModel
     {

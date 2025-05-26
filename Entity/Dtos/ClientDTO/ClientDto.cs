@@ -11,6 +11,6 @@ namespace Entity.Dtos.ClientDTO
     {
         public string Email { get; set; }
         public string Phone { get; set; }
-        public int CityId { get; set; }
+        public int UserId { get; set; }
     }
 }

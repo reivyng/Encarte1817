@@ -5,7 +5,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using Entity.Dtos.AuthDTO;
-using Entity.Model;
+using Entity.Model.Security;
 
 namespace Utilities.Interfaces
 {

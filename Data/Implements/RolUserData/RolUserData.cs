@@ -1,7 +1,7 @@
 ﻿using Data.Implements.BaseData;
 using Data.Interfaces; // Añade esta línea
 using Entity.Context;
-using Entity.Model;
+using Entity.Model.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;

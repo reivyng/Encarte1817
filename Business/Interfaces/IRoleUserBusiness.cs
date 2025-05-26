@@ -1,7 +1,7 @@
 using Business.Implements;
 using Entity;
 using Entity.Dtos.RolUserDTO;
-using Entity.Model;
+using Entity.Model.Security;
 using System.Threading.Tasks;
 
 namespace Business.Interfaces

@@ -1,5 +1,4 @@
-﻿
-namespace Entity.Model
+﻿namespace Entity.Model.Security
 {
     public class RolFormPermission 
     {

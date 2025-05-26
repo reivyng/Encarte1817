@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Entity.Dtos.UserDTO;
-using Entity.Model;
 using Web.Controllers.Interface;
 using Business.Interfaces;
+using Entity.Model.Security;
 
 namespace Web.Controllers.Implements
 {

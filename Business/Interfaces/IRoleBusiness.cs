@@ -1,6 +1,6 @@
 using Business.Interfaces;
 using Entity.Dtos.RolDTO;
-using Entity.Model;
+using Entity.Model.Security;
 
 namespace Business.Interfaces
 {

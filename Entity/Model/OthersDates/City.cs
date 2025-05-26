@@ -1,6 +1,6 @@
 ﻿using Entity.Model.Base;
 
-namespace Entity.Model
+namespace Entity.Model.OthersPerson
 {
     public class City : GenericModel
     {
