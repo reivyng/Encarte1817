@@ -2,13 +2,11 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using Entity.Model.Base;
-
 using System.Data;
 using Dapper;
-
 using System.Linq.Expressions;
 using Entity.Model.Security;
-
+using Entity.Model.OthersPerson;
 
 namespace Entity.Context
 {
@@ -25,12 +23,27 @@ namespace Entity.Context
         public DbSet<User> Users { get; set; }
         public DbSet<Rol> Roles { get; set; }
         public DbSet<RolUser> RolUsers { get; set; }
+        public DbSet<Person> Persons { get; set; }
+        public DbSet<Form> Forms { get; set; }
+        public DbSet<Module> Modules { get; set; }
+        public DbSet<FormModule> ModulesModule { get; set; }
+        public DbSet<Permission> Permissions { get; set; }
+        public DbSet<RolFormPermission> RolFormPermissions { get; set; }
+        public DbSet<City> Citys { get; set; }
+        public DbSet<Client> Clients { get; set; }
+        public DbSet<Country> Countrys { get; set; }
+        public DbSet<Department> Departments { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Neighborhood> Neighborhoods { get; set; }
+        public DbSet<Provider> Providers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Configuración de la relación muchos-a-muchos
+            base.OnModelCreating(modelBuilder);
+
+            // Relación muchos-a-muchos: RolUser
             modelBuilder.Entity<RolUser>()
-                .HasKey(ru => new { ru.UserId, ru.RolId }); // Clave compuesta
+                .HasKey(ru => new { ru.UserId, ru.RolId });
 
             modelBuilder.Entity<RolUser>()
                 .HasOne(ru => ru.User)
@@ -41,33 +54,142 @@ namespace Entity.Context
                 .HasOne(ru => ru.Rol)
                 .WithMany(r => r.RolUsers)
                 .HasForeignKey(ru => ru.RolId);
-                
-            // Configuración para todas las entidades que heredan de BaseEntity
+
+            // Relación uno-a-muchos: Provider-Client
+            modelBuilder.Entity<Client>()
+                .HasOne(c => c.Provider)
+                .WithMany(p => p.Clients)
+                .HasForeignKey(c => c.ProviderId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Relación uno-a-uno: User-Client
+            modelBuilder.Entity<Client>()
+                .HasOne(c => c.User)
+                .WithOne(u => u.Client)
+                .HasForeignKey<Client>(c => c.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Relación uno-a-muchos: Country-Department
+            modelBuilder.Entity<Department>()
+                .HasOne(d => d.Country)
+                .WithMany(c => c.Department)
+                .HasForeignKey(d => d.CountryId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Relación uno-a-muchos: Department-City
+            modelBuilder.Entity<City>()
+                .HasOne(c => c.Department)
+                .WithMany(d => d.City)
+                .HasForeignKey(c => c.DeparmentId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Relación uno-a-muchos: City-Neighborhood
+            modelBuilder.Entity<Neighborhood>()
+                .HasOne(n => n.City)
+                .WithMany(c => c.Neighborhoods)
+                .HasForeignKey(n => n.CityId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Relación uno-a-muchos: City-Client (Clientes)
+            modelBuilder.Entity<Client>()
+                .HasOne<City>()
+                .WithMany(c => c.Clientes)
+                .HasForeignKey("CityId")
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Relación uno-a-uno: User-Person
+            modelBuilder.Entity<User>()
+                .HasOne(u => u.Person)
+                .WithOne(p => p.User)
+                .HasForeignKey<User>(u => u.PersonId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Relación uno-a-uno: User-Employee
+            modelBuilder.Entity<User>()
+                .HasOne(u => u.Employee)
+                .WithOne(e => e.User)
+                .HasForeignKey<Employee>(e => e.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Relación uno-a-uno: User-Provider
+            modelBuilder.Entity<User>()
+                .HasOne(u => u.Provider)
+                .WithOne(p => p.User)
+                .HasForeignKey<Provider>(p => p.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Relación uno-a-muchos: User-Neighborhood
+            modelBuilder.Entity<User>()
+                .HasOne(u => u.Neighborhood)
+                .WithMany()
+                .HasForeignKey(u => u.NeighborhoodId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Relación uno-a-muchos: Form-FormModule
+            modelBuilder.Entity<FormModule>()
+                .HasOne(fm => fm.Form)
+                .WithMany(f => f.FormModule)
+                .HasForeignKey(fm => fm.FormId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Relación uno-a-muchos: Module-FormModule
+            modelBuilder.Entity<FormModule>()
+                .HasOne(fm => fm.Module)
+                .WithMany(m => m.FormModule)
+                .HasForeignKey(fm => fm.ModuleId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Relación uno-a-muchos: Permission-RolFormPermission
+            modelBuilder.Entity<RolFormPermission>()
+                .HasOne(rfp => rfp.Permission)
+                .WithMany(p => p.RolFormPermission)
+                .HasForeignKey(rfp => rfp.PermissionId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Relación uno-a-muchos: Rol-RolFormPermission
+            modelBuilder.Entity<RolFormPermission>()
+                .HasOne(rfp => rfp.Rol)
+                .WithMany()
+                .HasForeignKey(rfp => rfp.RolId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Relación uno-a-muchos: Form-RolFormPermission
+            modelBuilder.Entity<RolFormPermission>()
+                .HasOne(rfp => rfp.Form)
+                .WithMany(f => f.RolFormPermission)
+                .HasForeignKey(rfp => rfp.FormId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Configuración para entidades que heredan de BaseEntity
             foreach (var entityType in modelBuilder.Model.GetEntityTypes()
-                .Where(t => t.ClrType.IsSubclassOf(typeof(BaseEntity))))
+                .Where(t => t.ClrType != null && t.ClrType.IsSubclassOf(typeof(BaseEntity))))
             {
-                // Configurar CreatedAt para que no sea nullable
-                modelBuilder.Entity(entityType.ClrType)
-                    .Property("CreatedAt")
-                    .IsRequired();
-                    
-                // Configurar UpdatedAt y DeleteAt como nullable
-                modelBuilder.Entity(entityType.ClrType)
-                    .Property("UpdatedAt")
-                    .IsRequired(false);
-                    
-                modelBuilder.Entity(entityType.ClrType)
-                    .Property("DeleteAt")
-                    .IsRequired(false);
-                    
-                // Configurar Status con un valor predeterminado de true
                 modelBuilder.Entity(entityType.ClrType)
                     .Property("Status")
                     .HasDefaultValue(true);
+
+                modelBuilder.Entity(entityType.ClrType)
+                    .Property("DeleteAt")
+                    .IsRequired(false);
+            }
+
+            // Configuración para entidades que heredan de GenericModel
+            foreach (var entityType in modelBuilder.Model.GetEntityTypes()
+                .Where(t => t.ClrType != null && t.ClrType.IsSubclassOf(typeof(GenericModel))))
+            {
+                modelBuilder.Entity(entityType.ClrType)
+                    .Property("Name")
+                    .IsRequired()
+                    .HasMaxLength(100);
+
+                modelBuilder.Entity(entityType.ClrType)
+                    .Property("Description")
+                    .HasMaxLength(500);
             }
         }
 
-        
+
+
         /// <summary>
         /// Configura opciones adicionales del contexto, como el registro de datos sensibles.
         /// </summary>
@@ -85,29 +207,7 @@ namespace Entity.Context
         protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
         {
             configurationBuilder.Properties<decimal>().HavePrecision(18, 2);
-        }
-
-        /// <summary>
-        /// Guarda los cambios en la base de datos, asegurando la auditoría antes de persistir los datos.
-        /// </summary>
-        /// <returns>Número de filas afectadas.</returns>
-        public override int SaveChanges()
-        {
-            EnsureAudit();
-            return base.SaveChanges();
-        }
-
-        /// <summary>
-        /// Guarda los cambios en la base de datos de manera asíncrona, asegurando la auditoría antes de la persistencia.
-        /// </summary>
-        /// <param name="acceptAllChangesOnSuccess">Indica si se deben aceptar todos los cambios en caso de éxito.</param>
-        /// <param name="cancellationToken">Token de cancelación para abortar la operación.</param>
-        /// <returns>Número de filas afectadas de forma asíncrona.</returns>
-        public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default)
-        {
-            EnsureAudit();
-            return base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
-        }
+        }        
 
         /// <summary>
         /// Ejecuta una consulta SQL utilizando Dapper y devuelve una colección de resultados de tipo genérico.
@@ -216,42 +316,6 @@ namespace Entity.Context
                 return new List<T>();
                 
             return await EntityFrameworkQueryableExtensions.ToListAsync(query);
-        }
-
-        /// <summary>
-        /// Método interno para garantizar la auditoría de los cambios en las entidades.
-        /// </summary>
-        private void EnsureAudit()
-        {
-            ChangeTracker.DetectChanges();
-            
-            var entries = ChangeTracker.Entries()
-                .Where(e => e.Entity is BaseEntity);
-
-            var currentDateTime = DateTime.UtcNow;
-
-            foreach (var entry in entries)
-            {
-                if (entry.Entity is BaseEntity entity)
-                {
-                    switch (entry.State)
-                    {
-                        case EntityState.Added:
-                            entity.CreatedAt = currentDateTime;
-                            entity.Status = true;
-                            break;
-                        case EntityState.Modified:
-                            entity.UpdatedAt = currentDateTime;
-                            break;
-                        case EntityState.Deleted:
-                            // Convertimos el borrado en un borrado lógico
-                            entry.State = EntityState.Modified;
-                            entity.DeleteAt = currentDateTime;
-                            entity.Status = false;
-                            break;
-                    }
-                }
-            }
         }
 
         /// <summary>

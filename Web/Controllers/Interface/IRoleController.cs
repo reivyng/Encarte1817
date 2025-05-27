@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using Entity.Dtos.RolDTO;
 using Entity.Model.Security;
+using Entity.Dtos.Security.RolDTO;
 
 namespace Web.Controllers.Interface
 {

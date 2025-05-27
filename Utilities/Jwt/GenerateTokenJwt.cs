@@ -1,7 +1,7 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using Entity.Dtos.AuthDTO;
+using Entity.Dtos.Security.AuthDTO;
 using Entity.Model.Security;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;

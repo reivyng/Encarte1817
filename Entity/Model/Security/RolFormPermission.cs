@@ -1,8 +1,9 @@
-﻿namespace Entity.Model.Security
+﻿using Entity.Model.Base;
+
+namespace Entity.Model.Security
 {
-    public class RolFormPermission 
+    public class RolFormPermission : BaseEntity
     {
-        public int Id { get; set; }
         public int PermissionId { get; set; }
         public Permission Permission { get; set; }
         public int RolId { get; set; }

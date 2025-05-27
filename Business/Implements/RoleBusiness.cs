@@ -1,18 +1,12 @@
-using System.ComponentModel.DataAnnotations;
 using AutoMapper;
 using Microsoft.Extensions.Logging;
-using Entity;
-
-using Business.Services;
 using Business.Interfaces;
 using Data.Interfaces;
 using Utilities.Exceptions;
 using ValidationException = Utilities.Exceptions.ValidationException;
-using Data.Implements.RolUserData;
-using Entity.Dtos.RolUserDTO;
 using Utilities.Interfaces;
-using Entity.Dtos.RolDTO;
 using Entity.Model.Security;
+using Entity.Dtos.Security.RolDTO;
 
 
 namespace Business.Implements

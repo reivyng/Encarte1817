@@ -1,4 +1,4 @@
-﻿using Entity.Dtos.Email;
+﻿using Entity.Dtos.Security.Email;
 using Microsoft.AspNetCore.Mvc;
 using Utilities.Mail;
 namespace Web.Controllers.Implements

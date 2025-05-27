@@ -1,8 +1,6 @@
-﻿
-using Data.Implements.BaseData;
+﻿using Data.Implements.BaseData;
 using Data.Interfaces;
 using Entity.Context;
-using Entity.Model;
 using Entity.Model.Security;
 using Microsoft.EntityFrameworkCore;
 
@@ -77,7 +75,6 @@ namespace Data.Implements.UserDate
                 UserId = userId,
                 RolId = rolId,
                 Status = true,
-                CreatedAt = DateTime.UtcNow,
                 User = user,
                 Rol = rol
             };

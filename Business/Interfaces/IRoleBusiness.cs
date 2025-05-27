@@ -1,5 +1,4 @@
-using Business.Interfaces;
-using Entity.Dtos.RolDTO;
+using Entity.Dtos.Security.RolDTO;
 using Entity.Model.Security;
 
 namespace Business.Interfaces

@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Entity.Dtos.RolDTO;
+using Entity.Dtos.Security.RolDTO;
 using Entity.Model.Security;
 
 namespace Utilities.Mappers.Profiles

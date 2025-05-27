@@ -7,7 +7,8 @@ using Business.Services;
 using Data.Implements.RolUserData;
 using Data.Interfaces;
 using Entity.Dtos.RolUserDTO;
-using Entity.Dtos.UserDTO;
+using Entity.Dtos.Security.RolUserDTO;
+using Entity.Dtos.Security.UserDTO;
 using Entity.Model.Security;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -101,7 +102,6 @@ namespace Business.Implements
             var user = _mapper.Map<User>(dto);
             user.Password = HashPassword(user.Password);
             user.Status = true;
-            user.CreatedAt = DateTime.Now;
 
             var createdUser = await _userData.CreateAsync(user);
             return _mapper.Map<UserDto>(createdUser);

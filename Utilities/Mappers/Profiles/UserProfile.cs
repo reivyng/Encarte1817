@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Entity.Dtos.UserDTO;
+using Entity.Dtos.Security.UserDTO;
 using Entity.Model.Security;
 using System;
 using System.Collections.Generic;

@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
-using Entity.Dtos.CredencialesDTO;
 using System.Collections.Generic;
 using System.Linq;
-using Entity.Dtos.AuthDTO;
 using Business.Interfaces;
+using Entity.Dtos.Security.CredencialesDTO;
+using Entity.Dtos.Security.AuthDTO;
 
 namespace Web.Controllers.Implements
 {
