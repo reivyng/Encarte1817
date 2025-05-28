@@ -1,6 +1,6 @@
 ﻿using Entity.Model.Security;
 
-namespace Data.Interfaces
+namespace Data.Interfaces.Security
 {
     public interface IPersonData : IBaseModelData<Person>
     {

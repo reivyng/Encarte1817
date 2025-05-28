@@ -1,5 +1,5 @@
 ﻿using Data.Implements.BaseData;
-using Data.Interfaces; // Añade esta línea
+using Data.Interfaces.Security;
 using Entity.Context;
 using Entity.Model.Security;
 using System;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.Implements.RolUserData;
+namespace Data.Implements.Security.RolUserData;
 
 public class RolUserData : BaseModelData<RolUser>, IRolUserData
 {

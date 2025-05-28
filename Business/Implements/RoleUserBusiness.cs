@@ -3,7 +3,7 @@ using AutoMapper;
 using Business.Interfaces;
 using Data.Implements.RolUserData;
 using Data.Implements.UserDate;
-using Data.Interfaces;
+using Data.Interfaces.Security;
 using Entity;
 using Entity.Dtos.RolUserDTO;
 using Entity.Model.Security;

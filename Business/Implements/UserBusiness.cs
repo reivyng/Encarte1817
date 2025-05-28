@@ -5,7 +5,7 @@ using AutoMapper;
 using Business.Interfaces;
 using Business.Services;
 using Data.Implements.RolUserData;
-using Data.Interfaces;
+using Data.Interfaces.Security;
 using Entity.Dtos.RolUserDTO;
 using Entity.Dtos.Security.RolUserDTO;
 using Entity.Dtos.Security.UserDTO;

@@ -1,12 +1,12 @@
 ﻿using Data.Implements.BaseData;
-using Data.Interfaces;
+using Data.Interfaces.Security;
 using Entity.Context;
 using Entity.Model.Security;
 using Microsoft.EntityFrameworkCore;
 
 
 
-namespace Data.Implements.UserDate
+namespace Data.Implements.Security.UserDate
 {   
     public class UserData : BaseModelData<User> , IUserData
     {
