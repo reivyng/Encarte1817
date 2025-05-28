@@ -1,8 +1,9 @@
+using Entity.Dtos.Base;
 using Entity.Dtos.Security.RolUserDTO;
 using Entity.Dtos.Security.UserDTO;
 using Entity.Model.Security;
 
-namespace Business.Interfaces
+namespace Business.Interfaces.Security
 {
     ///<summary>
     /// Define los métodos de negocio específicos para la gestíon de usuarios.

@@ -1,6 +1,5 @@
 // Business/Interfaces/IJwtService.cs
 using System.Security.Claims;
-using System.Threading.Tasks;
 using Entity.Dtos.Security.AuthDTO;
 using Entity.Model.Security;
 

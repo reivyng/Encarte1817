@@ -1,10 +1,7 @@
-using Business.Implements;
-using Entity;
 using Entity.Dtos.RolUserDTO;
 using Entity.Model.Security;
-using System.Threading.Tasks;
 
-namespace Business.Interfaces
+namespace Business.Interfaces.Security
 {
     ///<summary>
     /// Define los métodos de negocio específicos para la gestión de relaciones entre usuarios y roles.

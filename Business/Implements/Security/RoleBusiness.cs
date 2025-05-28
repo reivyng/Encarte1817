@@ -1,15 +1,15 @@
 using AutoMapper;
 using Microsoft.Extensions.Logging;
-using Business.Interfaces;
 using Utilities.Exceptions;
 using ValidationException = Utilities.Exceptions.ValidationException;
 using Utilities.Interfaces;
 using Entity.Model.Security;
 using Entity.Dtos.Security.RolDTO;
 using Data.Interfaces.Security;
+using Business.Interfaces.Security;
 
 
-namespace Business.Implements
+namespace Business.Implements.Security
 {
     /// <summary>
     /// Contiene la logica de negocio de los metodos especificos para la entidad Rol

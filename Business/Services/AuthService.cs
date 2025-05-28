@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using Business.Interfaces;
+using Business.Interfaces.Security;
 using Entity.Dtos.Security.AuthDTO;
 using Entity.Dtos.Security.CredencialesDTO;
 using Microsoft.Extensions.Logging;

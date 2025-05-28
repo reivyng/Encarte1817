@@ -1,7 +1,7 @@
 using Entity.Dtos.Security.RolDTO;
 using Entity.Model.Security;
 
-namespace Business.Interfaces
+namespace Business.Interfaces.Security
 {
     ///<summary>
     /// Define los métodos de negocio especifícos para la gestión de roles.

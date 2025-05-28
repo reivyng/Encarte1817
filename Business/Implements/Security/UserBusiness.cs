@@ -1,12 +1,8 @@
-using System.ComponentModel.DataAnnotations;
 using System.Security.Cryptography;
 using System.Text;
 using AutoMapper;
-using Business.Interfaces;
-using Business.Services;
-using Data.Implements.RolUserData;
+using Business.Interfaces.Security;
 using Data.Interfaces.Security;
-using Entity.Dtos.RolUserDTO;
 using Entity.Dtos.Security.RolUserDTO;
 using Entity.Dtos.Security.UserDTO;
 using Entity.Model.Security;
@@ -17,7 +13,7 @@ using Utilities.Interfaces;
 using Utilities.Mail;
 using ValidationException = Utilities.Exceptions.ValidationException;
 
-namespace Business.Implements
+namespace Business.Implements.Security
 {
     /// <summary>
     /// Contiene la logica de negocio de los metodos especificos para la entidad Rol
