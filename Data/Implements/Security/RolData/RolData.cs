@@ -10,6 +10,7 @@ namespace Data.Implements.Security.RolData
         public RolData(ApplicationDbContext context) : base(context)
         {
         }
+
         public async Task<bool> ActiveAsync(int id, bool active)
         {
             var rol = await _context.Set<Rol>().FindAsync(id);
@@ -22,6 +23,7 @@ namespace Data.Implements.Security.RolData
             await _context.SaveChangesAsync();
             return true;
         }
+
         public async Task<bool> UpdatePartial(Rol rol)
         {
             var existingRol = await _context.Roles.FindAsync(rol.Id);

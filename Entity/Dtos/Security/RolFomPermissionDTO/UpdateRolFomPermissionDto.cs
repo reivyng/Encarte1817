@@ -1,6 +1,6 @@
 using Entity.Dtos.Base;
 
-namespace Entity.Dtos.Security.UpdateRolFomPermissionDTO
+namespace Entity.Dtos.Security.RolFomPermissionDTO
 {
     public class UpdateRolFomPermissionDto : BaseDto
     {

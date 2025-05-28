@@ -2,14 +2,16 @@
 using Entity.Dtos.Security.RolDTO;
 using Entity.Model.Security;
 
-namespace Utilities.Mappers.Profiles
+namespace Utilities.Mappers.Profiles.Security
 {
     public class RolProfile : Profile
     {
         public RolProfile()
         {
-            // Mapeo de Rol a RolDto y viceversa
             CreateMap<Rol, RolDto>().ReverseMap();
+            CreateMap<Rol, DeleteLogiRolDto>().ReverseMap();
+            CreateMap<Rol, UpdateRolDto>().ReverseMap();
         }
+
     }
 }

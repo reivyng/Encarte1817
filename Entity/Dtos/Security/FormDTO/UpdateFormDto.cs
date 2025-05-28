@@ -1,6 +1,6 @@
 using Entity.Dtos.Base;
 
-namespace Entity.Dtos.OthersDates.FormDTO
+namespace Entity.Dtos.Security.FormDTO
 {
     public class UpdateFormDto : GenericDto
     {

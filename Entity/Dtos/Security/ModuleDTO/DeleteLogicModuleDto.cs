@@ -1,6 +1,6 @@
 using Entity.Dtos.Base;
 
-namespace Entity.Dtos.OthersDates.ModuleDTO
+namespace Entity.Dtos.Security.ModuleDTO
 {
     public class DeleteLogicModuleDto : BaseDto
     {

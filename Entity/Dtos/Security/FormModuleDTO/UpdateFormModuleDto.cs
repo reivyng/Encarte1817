@@ -1,6 +1,6 @@
 using Entity.Dtos.Base;
 
-namespace Entity.Dtos.OthersDates.FormModuleDTO
+namespace Entity.Dtos.Security.FormModuleDTO
 {
     public class UpdateFormModuleDto : BaseDto
     {

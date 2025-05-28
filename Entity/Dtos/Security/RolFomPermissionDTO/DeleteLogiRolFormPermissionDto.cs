@@ -1,6 +1,6 @@
 using Entity.Dtos.Base;
 
-namespace Entity.Dtos.Security.DeleteLogiRolFomPermissionDTO
+namespace Entity.Dtos.Security.RolFomPermissionDTO
 {
     public class DeleteLogiRolFomPermissionDto : BaseDto
     {

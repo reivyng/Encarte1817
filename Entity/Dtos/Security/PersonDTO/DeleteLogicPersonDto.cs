@@ -1,6 +1,6 @@
 using Entity.Dtos.Base;
 
-namespace Entity.Dtos.OthersDates.PersonDTO
+namespace Entity.Dtos.Security.PersonDTO
 {
     public class DeleteLogicPersonDto : BaseDto
     {

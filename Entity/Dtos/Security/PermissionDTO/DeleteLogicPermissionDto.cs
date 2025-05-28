@@ -1,6 +1,6 @@
 using Entity.Dtos.Base;
 
-namespace Entity.Dtos.OthersDates.PermissionDTO
+namespace Entity.Dtos.Security.PermissionDTO
 {
     public class DeleteLogicPermissionDto : BaseDto
     {

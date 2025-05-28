@@ -1,6 +1,6 @@
 using Entity.Dtos.Base;
 
-namespace Entity.Dtos.OthersDates.FormDTO
+namespace Entity.Dtos.Security.FormDTO
 {
     /// <summary>
     /// DTO para la creación de un nuevo rol (operación Delete Logico)
